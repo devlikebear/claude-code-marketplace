@@ -1,0 +1,25 @@
+{
+  "name": "claude-code-marketplace",
+  "owner": {
+    "name": "Changheon Shin",
+    "url": "https://github.com/changheonshin"
+  },
+  "plugins": [
+    {
+      "name": "tdd-workflow",
+      "source": "./plugins/commands/tdd-workflow"
+    },
+    {
+      "name": "docs",
+      "source": "./plugins/commands/docs"
+    },
+    {
+      "name": "github-flow",
+      "source": "./plugins/commands/github-flow"
+    },
+    {
+      "name": "quality-guardian",
+      "source": "./plugins/agents/quality-guardian"
+    }
+  ]
+}
