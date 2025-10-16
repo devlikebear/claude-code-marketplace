@@ -1,0 +1,19 @@
+{
+  "name": "github-flow",
+  "version": "1.0.0",
+  "description": "GitHub Flow 워크플로우를 체크리스트 중심으로 자동화하는 플러그인",
+  "author": {
+    "name": "Changheon Shin",
+    "url": "https://github.com/changheonshin"
+  },
+  "license": "MIT",
+  "keywords": [
+    "github",
+    "github-flow",
+    "workflow",
+    "automation",
+    "pr",
+    "pull-request",
+    "issue"
+  ]
+}
