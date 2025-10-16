@@ -1,0 +1,19 @@
+{
+  "name": "quality-guardian",
+  "version": "1.0.0",
+  "description": "코드 품질, 보안, 테스트를 종합적으로 검사하는 전문 Sub-agent",
+  "author": {
+    "name": "Changheon Shin",
+    "url": "https://github.com/changheonshin"
+  },
+  "license": "MIT",
+  "keywords": [
+    "code-quality",
+    "security",
+    "testing",
+    "code-review",
+    "vulnerability",
+    "gitleaks",
+    "coverage"
+  ]
+}
