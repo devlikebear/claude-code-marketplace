@@ -32,8 +32,7 @@
       "version": "1.0.0",
       "description": "장르 소설 작성을 위한 전문 도구 모음 (9개 명령어, 4개 에이전트, 213 테스트)",
       "category": "creative-writing",
-      "tags": ["novel", "writing", "fiction", "tdd", "korean"],
-      "featured": true
+      "tags": ["novel", "writing", "fiction", "tdd", "korean"]
     }
   ]
 }
