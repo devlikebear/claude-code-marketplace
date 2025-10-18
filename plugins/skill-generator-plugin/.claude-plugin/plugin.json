@@ -1,0 +1,26 @@
+{
+  "name": "skill-generator",
+  "version": "1.0.0",
+  "description": "코드베이스를 분석하여 Claude Skills를 자동으로 생성하는 플러그인",
+  "author": {
+    "name": "Changheon Shin",
+    "url": "https://github.com/changheonshin"
+  },
+  "repository": "https://github.com/changheonshin/claude-code-marketplace",
+  "license": "MIT",
+  "keywords": [
+    "skills",
+    "skill-generation",
+    "ai-capabilities",
+    "code-analysis",
+    "automation",
+    "claude",
+    "reusable-ai"
+  ],
+  "commands": [
+    "./commands/skill-generator.md"
+  ],
+  "agents": [
+    "./agents/skill-generator-agent.md"
+  ]
+}

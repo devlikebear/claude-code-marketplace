@@ -45,6 +45,14 @@
       "description": "장르 소설 작성을 위한 완전한 통합 워크플로우 - 시작부터 완성까지 (13개 명령어, 4개 에이전트, 6개 스킬, 344 테스트)",
       "category": "creative-writing",
       "tags": ["novel", "writing", "fiction", "creative", "workflow", "tdd"]
+    },
+    {
+      "name": "skill-generator",
+      "source": "./plugins/skill-generator-plugin",
+      "version": "1.0.0",
+      "description": "코드베이스를 분석하여 Claude Skills를 자동으로 생성하는 플러그인",
+      "category": "development",
+      "tags": ["skills", "ai-capabilities", "code-analysis", "automation", "claude"]
     }
   ],
   "categories": [
