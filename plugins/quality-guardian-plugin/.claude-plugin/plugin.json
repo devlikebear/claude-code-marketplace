@@ -6,6 +6,7 @@
     "name": "Changheon Shin",
     "url": "https://github.com/changheonshin"
   },
+  "repository": "https://github.com/changheonshin/claude-code-marketplace",
   "license": "MIT",
   "keywords": [
     "code-quality",
@@ -15,5 +16,8 @@
     "vulnerability",
     "gitleaks",
     "coverage"
+  ],
+  "agents": [
+    "./agents/quality-guardian.md"
   ]
 }

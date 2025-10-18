@@ -6,6 +6,7 @@
     "name": "Changheon Shin",
     "url": "https://github.com/changheonshin"
   },
+  "repository": "https://github.com/changheonshin/claude-code-marketplace",
   "license": "MIT",
   "keywords": [
     "github",
@@ -15,5 +16,8 @@
     "pr",
     "pull-request",
     "issue"
+  ],
+  "commands": [
+    "./commands/github-flow.md"
   ]
 }

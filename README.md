@@ -2,7 +2,7 @@
 
 커뮤니티 기반 Claude Code 플러그인 마켓플레이스 - **5개 플러그인 제공**
 
-[![Version](https://img.shields.io/badge/version-1.1.0-blue)](https://github.com/changheonshin/claude-code-marketplace)
+[![Version](https://img.shields.io/badge/version-1.2.0-blue)](https://github.com/changheonshin/claude-code-marketplace)
 [![Plugins](https://img.shields.io/badge/plugins-5-brightgreen)](https://github.com/changheonshin/claude-code-marketplace)
 [![License](https://img.shields.io/badge/license-MIT-orange)](LICENSE)
 
@@ -51,14 +51,14 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화합니�
 
 ### 5. `novel-writer` - 장르 소설 작성 전문 플러그인 ⭐ NEW
 
-장르 소설 작성을 위한 전문 도구 모음입니다. TDD 방식으로 개발되어 높은 품질을 보장합니다.
+장르 소설 작성을 위한 완전한 통합 워크플로우입니다. TDD 방식으로 개발되어 높은 품질을 보장합니다.
 
-**버전**: 1.0.0
-**타입**: Full Plugin (9 Commands + 4 Agents)
-**테스트**: 213개 (100% 통과)
+**버전**: 1.2.0
+**타입**: Full Plugin (13 Commands + 4 Agents + 6 Skills)
+**테스트**: 344개 (100% 통과)
 **Featured**: ⭐
 
-**9개 전문 명령어:**
+**13개 전문 명령어:**
 
 - `/plot-outline`: 3막 구조 플롯 생성
 - `/character-profile`: 입체적 캐릭터 프로필
@@ -69,6 +69,10 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화합니�
 - `/timeline`: 타임라인 추적
 - `/name-generator`: 의미있는 이름 생성
 - `/word-count`: 진행 상황 추적
+- `/help`: 종합 도움말
+- `/start`: 통합 워크플로우 시작
+- `/continue`: 프로젝트 재개
+- `/context`: 콘텐츠 검색 및 참조
 
 **4개 전문 에이전트:**
 
@@ -76,6 +80,15 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화합니�
 - `character-developer`: 캐릭터 개발자
 - `plot-architect`: 플롯 설계자
 - `editor`: 전문 편집자
+
+**6개 장르 Skills:**
+
+- Fantasy Worldbuilding: 판타지 세계관 구축
+- Romance Tropes: 로맨스 트로프 및 관계 역학
+- Thriller Pacing: 스릴러 페이싱 및 긴장감
+- SciFi Technology: SF 과학기술 설정
+- Horror Atmosphere: 공포 분위기 조성
+- Mystery Plotting: 미스터리 플롯 구성
 
 **상세 문서**: [plugins/novel-writer-plugin/README.md](plugins/novel-writer-plugin/README.md)
 

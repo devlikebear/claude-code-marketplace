@@ -6,6 +6,7 @@
     "name": "Changheon Shin",
     "url": "https://github.com/changheonshin"
   },
+  "repository": "https://github.com/changheonshin/claude-code-marketplace",
   "license": "MIT",
   "keywords": [
     "documentation",
@@ -15,5 +16,8 @@
     "readme",
     "changelog",
     "automation"
+  ],
+  "commands": [
+    "./commands/docs.md"
   ]
 }

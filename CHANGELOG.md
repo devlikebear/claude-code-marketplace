@@ -5,6 +5,66 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.0] - 2024-10-18
+
+### Changed
+
+#### 마켓플레이스 구조 개선 - 플러그인별 독립 디렉토리
+
+**기존 구조:**
+
+```text
+plugins/
+├── commands/      # 공유 commands 디렉토리
+│   ├── tdd-workflow/
+│   ├── docs/
+│   └── github-flow/
+└── agents/        # 공유 agents 디렉토리
+    └── quality-guardian/
+```
+
+**새 구조:**
+
+```text
+plugins/
+├── tdd-workflow-plugin/        # 완전 독립
+│   ├── .claude-plugin/
+│   ├── commands/
+│   └── README.md
+├── docs-plugin/
+├── github-flow-plugin/
+├── quality-guardian-plugin/
+└── novel-writer-plugin/
+```
+
+**주요 변경사항:**
+
+- 모든 플러그인이 완전히 독립된 디렉토리 구조로 변경
+- 각 플러그인이 자체 commands/, agents/, skills/, mcp/ 디렉토리 보유
+- Skills 및 MCP 서버 확장이 용이한 구조로 개선
+- ARCHITECTURE.md 문서 추가 (확장 가능한 플러그인 구조 가이드)
+
+**플러그인별 변경:**
+
+- `tdd-workflow`: `./plugins/commands/tdd-workflow` → `./plugins/tdd-workflow-plugin`
+- `docs`: `./plugins/commands/docs` → `./plugins/docs-plugin`
+- `github-flow`: `./plugins/commands/github-flow` → `./plugins/github-flow-plugin`
+- `quality-guardian`: `./plugins/agents/quality-guardian` → `./plugins/quality-guardian-plugin`
+- `novel-writer`: `./plugins/novel-writer-plugin` (이미 올바른 구조)
+
+#### Novel Writer Plugin 업데이트 (v1.0.0 → v1.2.0)
+
+- 13개 명령어 (기존 9개 + 4개 추가: help, start, continue, context)
+- 6개 장르 Skills 추가 (Fantasy, Romance, Thriller, SciFi, Horror, Mystery)
+- 테스트 344개 (기존 213개 + 131개)
+- 완전한 통합 워크플로우 제공
+
+#### 마켓플레이스 메타데이터 개선
+
+- marketplace.json 버전: 1.1.0 → 1.2.0
+- 모든 플러그인에 description, category, tags 추가
+- categories 필드 추가: creative-writing, development, documentation, workflow, quality
+
 ## [1.1.0] - 2024-10-18
 
 ### Added
