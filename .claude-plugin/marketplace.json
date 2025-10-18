@@ -1,5 +1,6 @@
 {
   "name": "claude-code-marketplace",
+  "version": "1.1.0",
   "owner": {
     "name": "Changheon Shin",
     "url": "https://github.com/changheonshin"
@@ -7,19 +8,32 @@
   "plugins": [
     {
       "name": "tdd-workflow",
-      "source": "./plugins/commands/tdd-workflow"
+      "source": "./plugins/commands/tdd-workflow",
+      "version": "1.0.0"
     },
     {
       "name": "docs",
-      "source": "./plugins/commands/docs"
+      "source": "./plugins/commands/docs",
+      "version": "1.0.0"
     },
     {
       "name": "github-flow",
-      "source": "./plugins/commands/github-flow"
+      "source": "./plugins/commands/github-flow",
+      "version": "1.0.0"
     },
     {
       "name": "quality-guardian",
-      "source": "./plugins/agents/quality-guardian"
+      "source": "./plugins/agents/quality-guardian",
+      "version": "1.0.0"
+    },
+    {
+      "name": "novel-writer",
+      "source": "./plugins/novel-writer-plugin",
+      "version": "1.0.0",
+      "description": "장르 소설 작성을 위한 전문 도구 모음 (9개 명령어, 4개 에이전트, 213 테스트)",
+      "category": "creative-writing",
+      "tags": ["novel", "writing", "fiction", "tdd", "korean"],
+      "featured": true
     }
   ]
 }
