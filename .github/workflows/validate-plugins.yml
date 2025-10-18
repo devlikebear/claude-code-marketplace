@@ -31,19 +31,27 @@ jobs:
 
       - name: Validate TDD Workflow Plugin
         run: |
-          claude plugin validate plugins/commands/tdd-workflow
+          claude plugin validate plugins/tdd-workflow-plugin
 
       - name: Validate Docs Plugin
         run: |
-          claude plugin validate plugins/commands/docs
+          claude plugin validate plugins/docs-plugin
 
       - name: Validate GitHub Flow Plugin
         run: |
-          claude plugin validate plugins/commands/github-flow
+          claude plugin validate plugins/github-flow-plugin
 
       - name: Validate Quality Guardian Plugin
         run: |
-          claude plugin validate plugins/agents/quality-guardian
+          claude plugin validate plugins/quality-guardian-plugin
+
+      - name: Validate Skill Generator Plugin
+        run: |
+          claude plugin validate plugins/skill-generator-plugin
+
+      - name: Validate Novel Writer Plugin
+        run: |
+          claude plugin validate plugins/novel-writer-plugin
 
       - name: Validate Marketplace Manifest
         run: |
@@ -58,7 +66,7 @@ jobs:
       - name: Check Plugin Documentation
         run: |
           # 각 플러그인에 README.md가 있는지 확인
-          for plugin_dir in plugins/commands/* plugins/agents/*; do
+          for plugin_dir in plugins/*-plugin; do
             if [ -d "$plugin_dir" ]; then
               if [ ! -f "$plugin_dir/README.md" ]; then
                 echo "Error: README.md not found in $plugin_dir"
