@@ -1,7 +1,7 @@
 {
   "name": "novel-writer",
-  "version": "1.0.0",
-  "description": "장르 소설 작성을 위한 전문 도구 모음 - 플롯, 캐릭터, 장면 작성 지원",
+  "version": "1.2.0",
+  "description": "장르 소설 작성을 위한 완전한 통합 워크플로우 - 시작부터 완성까지",
   "author": {
     "name": "ChangHeon Shin",
     "email": "your@email.com",
@@ -27,12 +27,24 @@
     "./commands/worldbuilding.md",
     "./commands/timeline.md",
     "./commands/name-generator.md",
-    "./commands/word-count.md"
+    "./commands/word-count.md",
+    "./commands/help.md",
+    "./commands/start.md",
+    "./commands/continue.md",
+    "./commands/context.md"
   ],
   "agents": [
     "./agents/genre-specialist.md",
     "./agents/character-developer.md",
     "./agents/plot-architect.md",
     "./agents/editor.md"
+  ],
+  "skills": [
+    "./skills/fantasy-worldbuilding/SKILL.md",
+    "./skills/romance-tropes/SKILL.md",
+    "./skills/thriller-pacing/SKILL.md",
+    "./skills/scifi-technology/SKILL.md",
+    "./skills/horror-atmosphere/SKILL.md",
+    "./skills/mystery-plotting/SKILL.md"
   ]
 }

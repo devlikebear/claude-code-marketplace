@@ -2,9 +2,9 @@
 
 장르 소설 작성을 위한 전문 도구 모음 - Claude Code 플러그인
 
-[![Tests](https://img.shields.io/badge/tests-213%20passing-brightgreen)](https://github.com/yourusername/novel-writer-plugin)
+[![Tests](https://img.shields.io/badge/tests-344%20passing-brightgreen)](https://github.com/yourusername/novel-writer-plugin)
 [![License](https://img.shields.io/badge/license-MIT-blue)](LICENSE)
-[![Version](https://img.shields.io/badge/version-1.0.0-orange)](package.json)
+[![Version](https://img.shields.io/badge/version-1.2.0-orange)](package.json)
 
 ## 📖 소개
 
@@ -12,7 +12,13 @@ Novel Writer Plugin은 소설 작가들이 Claude Code를 사용하여 창작 �
 
 ## ✨ 특징
 
-### 9개의 전문 명령어
+### 13개의 전문 명령어
+
+**통합 워크플로우 (Phase 6-8):**
+- **`/help`**: 전체 플러그인 사용법 종합 안내 및 FAQ
+- **`/start`**: 소설 시작부터 완성까지 통합 워크플로우 제공 ⭐
+- **`/continue`**: 중단했던 프로젝트 재개 및 컨텍스트 복원 ⭐
+- **`/context`**: 작성된 콘텐츠 검색 및 참조 관리 ⭐
 
 **기본 명령어 (Phase 2):**
 - **`/plot-outline`**: 3막 구조 기반의 체계적인 플롯 개요 생성
@@ -33,6 +39,15 @@ Novel Writer Plugin은 소설 작가들이 Claude Code를 사용하여 창작 �
 - **`character-developer`**: 캐릭터 심화 개발 및 관계 설정
 - **`plot-architect`**: Save the Cat, Hero's Journey 등 구조적 플롯 분석
 - **`editor`**: 문법, 흐름, 가독성 검토
+
+### 6개의 장르별 Claude Skills (Phase 7-8) ⭐
+
+- **`Fantasy Worldbuilding`**: 마법 시스템, 종족, 정치, 신화 설계
+- **`Romance Tropes`**: 로맨스 트로프 마스터 (Enemies to Lovers, Fake Dating 등)
+- **`Thriller Pacing`**: 긴장감, 서스펜스, 액션 시퀀스 최적화
+- **`SciFi Technology`**: FTL, AI, 우주 서식지, 미래 기술 설계
+- **`Horror Atmosphere`**: 공포 조성, 괴물 디자인, 심리적 공포 기법
+- **`Mystery Plotting`**: Fair Play 미스터리, 단서 배치, 반전 설계
 
 ## 설치
 
