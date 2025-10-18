@@ -26,7 +26,11 @@
     "./commands/character-profile.md",
     "./commands/scene-write.md",
     "./commands/dialogue-enhance.md",
-    "./commands/consistency-check.md"
+    "./commands/consistency-check.md",
+    "./commands/worldbuilding.md",
+    "./commands/timeline.md",
+    "./commands/name-generator.md",
+    "./commands/word-count.md"
   ],
   "agents": [
     "./agents/genre-specialist.md",
