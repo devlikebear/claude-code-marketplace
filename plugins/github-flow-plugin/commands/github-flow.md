@@ -302,6 +302,128 @@ git add __tests__/ProfileCard.test.tsx
 git commit -m "test(profile): add ProfileCard tests"
 ```
 
+## 4.5단계: PR 생성 전 문서 갱신
+
+PR을 생성하기 전에 프로젝트 문서를 최신 상태로 갱신합니다.
+
+### 자동 문서 갱신 (권장)
+
+```bash
+# Claude Code 문서 갱신 플러그인 사용
+/docs --update
+```
+
+위 명령어가 지원되면 다음을 자동으로 수행합니다:
+- API 문서 업데이트
+- README 파일 갱신
+- CHANGELOG 항목 추가
+- 버전 정보 동기화
+
+### 수동 문서 갱신
+
+`/docs --update`가 사용 불가능한 경우 수동으로 문서를 갱신합니다:
+
+#### 1. 문서 파일 검색
+
+```bash
+# API 문서 찾기
+find . -name "API*" -o -name "*api*" -o -name "docs/*" | grep -E "\.(md|rst|txt)$"
+
+# README 찾기
+find . -name "README*" -o -name "readme*"
+
+# CHANGELOG 찾기
+find . -name "CHANGELOG*" -o -name "CHANGES*" -o -name "HISTORY*"
+```
+
+#### 2. 각 문서 갱신
+
+**README.md 갱신:**
+```markdown
+## 새로운 기능
+
+### v1.1.0 (Feature)
+- Add dark mode support (#123)
+- 새로운 기능 설명
+
+### v1.0.1 (Bug Fix)
+- Fix login redirect issue (#124)
+- 버그 수정 내용
+```
+
+**CHANGELOG.md 갱신:**
+```markdown
+# Changelog
+
+## [1.1.0] - 2024-10-19
+
+### Added
+- Add dark mode support (#123)
+- 새로운 기능 1
+- 새로운 기능 2
+
+### Fixed
+- Fix login redirect issue (#124)
+
+### Changed
+- 변경사항 1
+
+---
+
+## [1.0.1] - 2024-10-18
+
+### Fixed
+- Critical bug fix (#122)
+```
+
+**API 문서 (docs/API.md) 갱신:**
+```markdown
+# API Documentation
+
+## v1.1.0 New Endpoints
+
+### GET /api/themes
+프로필 테마 조회
+- Response: `{ themes: Theme[] }`
+
+### PATCH /api/user/:id/theme
+사용자 테마 변경
+- Body: `{ themeId: string }`
+- Response: `{ success: boolean }`
+```
+
+#### 3. 문서 변경 커밋
+
+```bash
+# 변경된 문서 추가
+git add README.md CHANGELOG.md docs/API.md
+
+# 문서 갱신 커밋
+git commit -m "docs: update documentation for v1.1.0
+
+- Update README with new features
+- Add v1.1.0 entry to CHANGELOG
+- Update API documentation
+
+Closes #[issue-number]"
+
+# 원격에 푸시
+git push origin feature/123-add-dark-mode-support
+```
+
+### 문서 갱신 체크리스트
+
+```markdown
+## 문서 갱신 확인 목록
+- [ ] `/docs --update` 실행 또는 수동 갱신 완료
+- [ ] README.md 버전 정보 업데이트
+- [ ] CHANGELOG.md에 새로운 버전 항목 추가
+- [ ] API 문서 (있는 경우) 업데이트
+- [ ] 문서 파일 커밋
+- [ ] 브랜치에 푸시
+- [ ] PR에 문서 갱신 내용 포함
+```
+
 ## 5단계: Pull Request 생성
 
 ### PR 생성
@@ -515,16 +637,243 @@ git branch --no-merged
 2. 작업 계획 생성
 3. 브랜치 생성
 4. 개발 작업 (사용자가 수행)
-5. PR 생성
-6. 리뷰 (사용자가 수행)
-7. 병합
-8. 정리
+5. 테스트 및 코드 품질 검사
+6. **문서 갱신** (`/docs --update` 또는 수동 갱신)
+7. 문서 변경 커밋
+8. 리모트에 푸시
+9. PR 생성
+10. 리뷰 (사용자가 수행)
+11. 병합
+12. 릴리즈 태그 생성 (자동)
+13. 정리
+
+### 수동 단계별 워크플로우
+
+```bash
+# 1. 이슈 생성 (자동 버전 관리)
+/github-flow --issue-create --type feature --title "Add dark mode support"
+
+# 2. 작업 계획 수립
+/github-flow --plan --issue 123
+
+# 3. 브랜치 생성
+/github-flow --branch --issue 123
+
+# 4. 개발 작업 수행 (사용자)
+# ... 코드 작성, 테스트, 커밋 ...
+
+# 5. PR 생성 전 문서 갱신
+/docs --update
+# 또는 수동 갱신 후 커밋
+git add README.md CHANGELOG.md
+git commit -m "docs: update documentation for v1.1.0"
+git push origin feature/123-add-dark-mode-support
+
+# 6. PR 생성
+/github-flow --pr-create --issue 123
+
+# 7. PR 리뷰 (사용자/팀)
+/github-flow --pr-review 456
+
+# 8. PR 병합 + 릴리즈 (자동 버전 태그 생성)
+/github-flow --merge-cleanup
+```
+
+## 버전 관리 자동화
+
+이 플러그인은 이슈 타입에 따라 자동으로 버전을 관리합니다.
+
+### 버전 관리 규칙
+
+- **Feature 이슈** (`--type feature`): 마이너 버전 업데이트
+  - 예: 1.0.0 → 1.1.0
+  - 이슈와 브랜치 생성 시 새 버전과 함께 생성
+  - PR 병합 시 자동으로 릴리즈 태그 생성
+
+- **Bug 이슈** (`--type bug`): 패치 버전 업데이트
+  - 예: 1.0.0 → 1.0.1
+  - 이슈와 브랜치 생성 시 새 버전과 함께 생성
+  - PR 병합 시 자동으로 릴리즈 태그 생성
+
+### 프로젝트 버전 자동 감지
+
+플러그인은 다음 파일에서 자동으로 현재 버전을 감지합니다:
+- `package.json` (Node.js 프로젝트)
+- `pyproject.toml` (Python 프로젝트)
+- `Cargo.toml` (Rust 프로젝트)
+- `build.gradle` (Java/Kotlin 프로젝트)
+- `.claude-plugin/plugin.json` (Claude Code Plugin)
+- `.claude-plugin/marketplace.json` (Claude Code Plugin)
+
+### 예시: Feature 이슈 생성 및 버전 업데이트
+
+```bash
+# package.json 버전: 1.0.0
+/github-flow --issue-create --type feature --title "Add dark mode support"
+```
+
+**자동 수행 내용:**
+1. 현재 버전 감지: 1.0.0
+2. 마이너 버전 업데이트: 1.0.0 → 1.1.0
+3. 이슈 생성: "feat: Add dark mode support [v1.1.0]"
+4. 브랜치 생성: `feature/123-add-dark-mode-support`
+5. 이슈 본문에 버전 정보 포함
+
+**출력:**
+```markdown
+✅ 이슈 생성 완료: #123
+
+Title: feat: Add dark mode support
+Version: 1.1.0
+URL: https://github.com/user/repo/issues/123
+Branch: feature/123-add-dark-mode-support
+Labels: feature
+```
+
+### 예시: Bug 이슈 생성 및 버전 업데이트
+
+```bash
+# package.json 버전: 1.0.0
+/github-flow --issue-create --type bug --title "Fix login redirect issue"
+```
+
+**자동 수행 내용:**
+1. 현재 버전 감지: 1.0.0
+2. 패치 버전 업데이트: 1.0.0 → 1.0.1
+3. 이슈 생성: "fix: Fix login redirect issue [v1.0.1]"
+4. 브랜치 생성: `fix/124-fix-login-redirect-issue`
+5. 이슈 본문에 버전 정보 포함
+
+**출력:**
+```markdown
+✅ 이슈 생성 완료: #124
+
+Title: fix: Fix login redirect issue
+Version: 1.0.1
+URL: https://github.com/user/repo/issues/124
+Branch: fix/124-fix-login-redirect-issue
+Labels: bug
+```
+
+### PR 병합 시 자동 릴리즈
+
+PR 병합 완료 후 자동으로 릴리즈 태그가 생성됩니다.
+
+```bash
+/github-flow --merge-cleanup
+```
+
+**자동 수행 내용:**
+1. PR 병합 (squash)
+2. 이슈 자동 close
+3. 버전 태그 생성: `v1.1.0` (또는 `v1.0.1`)
+4. 릴리즈 노트 생성
+5. 브랜치 정리
+6. main 브랜치로 복귀
+
+## 릴리즈 관리 (`--release`)
+
+### 수동 릴리즈 생성
+
+특정 버전으로 릴리즈 태그를 생성합니다.
+
+```bash
+# 현재 버전으로 릴리즈
+/github-flow --release
+
+# 특정 버전으로 릴리즈
+/github-flow --release --version 2.0.0
+
+# 메시지와 함께 릴리즈
+/github-flow --release --version 2.0.0 --message "Major version update with breaking changes"
+```
+
+### 릴리즈 태그 자동 생성
+
+플러그인은 다음과 같이 릴리즈 태그를 생성합니다:
+
+```bash
+git tag -a v1.1.0 -m "Release v1.1.0
+
+Changes:
+- Add dark mode support (#123)
+
+Generated with github-flow plugin"
+git push origin v1.1.0
+```
+
+### 릴리즈 노트 생성
+
+PR 병합 시 자동으로 생성되는 릴리즈 노트 템플릿:
+
+```markdown
+# Release v1.1.0
+
+## 🎉 New Features
+- Add dark mode support (#123)
+
+## 🐛 Bug Fixes
+- Fix login redirect issue (#124)
+
+## 📝 Documentation
+- Update API documentation (#125)
+
+## 🔄 Changes
+- 2 feature additions
+- 1 bug fix
+- Changelog updated
+
+---
+Generated by [github-flow](https://github.com/devlikebear/claude-code-marketplace)
+```
+
+### 전체 버전 관리 워크플로우
+
+```
+이슈 생성 (v1.1.0)
+    ↓
+브랜치 생성 (feature/123-xxx)
+    ↓
+개발 작업
+    ↓
+PR 생성
+    ↓
+PR 병합
+    ↓
+릴리즈 태그 생성 (v1.1.0)
+    ↓
+릴리즈 노트 생성
+    ↓
+main 브랜치 정리
+```
 
 ## 사용 예시
 
-### 이슈 생성
+### 이슈 생성 (버전 관리 포함)
 ```bash
 /github-flow --issue-create --type feature --title "Add dark mode support"
+```
+
+### Feature 버전 업데이트 (마이너)
+```bash
+/github-flow --issue-create --type feature --title "Add user profile page"
+# 1.0.0 → 1.1.0
+```
+
+### Bug 버전 업데이트 (패치)
+```bash
+/github-flow --issue-create --type bug --title "Fix login redirect issue"
+# 1.0.0 → 1.0.1
+```
+
+### 수동 릴리즈 생성
+```bash
+/github-flow --release --version 2.0.0
+```
+
+### 현재 버전으로 릴리즈
+```bash
+/github-flow --release
 ```
 
 ### 작업 계획 수립

@@ -5,6 +5,53 @@ All notable changes to this project will be documented in this file.
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [1.2.1] - 2024-10-19
+
+### Added
+
+#### github-flow Plugin 기능 강화 (v1.0.0 → v1.1.0)
+
+**자동 버전 관리 시스템**
+- Feature 이슈: 마이너 버전 자동 업데이트 (1.0.0 → 1.1.0)
+- Bug 이슈: 패치 버전 자동 업데이트 (1.0.0 → 1.0.1)
+- 확장된 버전 감지 지원:
+  - package.json (Node.js)
+  - pyproject.toml (Python)
+  - Cargo.toml (Rust)
+  - build.gradle (Java/Kotlin)
+  - ✨ NEW: .claude-plugin/plugin.json (Claude Code Plugin)
+  - ✨ NEW: .claude-plugin/marketplace.json (Claude Code Plugin)
+
+**수동 릴리즈 관리**
+- `--release` 명령어 추가
+- 현재 버전 또는 특정 버전으로 릴리즈 태그 생성
+- 커스텀 릴리즈 메시지 지원
+
+**PR 생성 전 자동 문서 갱신**
+- `/docs --update` 명령어 통합
+- README.md 자동 갱신 (버전, 기능 정보)
+- CHANGELOG.md 자동 항목 추가
+- API 문서 (docs/API.md) 자동 업데이트
+- 수동 갱신 가이드 포함
+- 갱신된 문서 자동 커밋 및 푸시
+
+**자동 릴리즈 프로세스**
+- PR 병합 시 버전 태그 자동 생성
+- 릴리즈 노트 자동 생성
+- GitHub Release에 자동 업로드
+
+**문서 개선**
+- 4.5단계 "PR 생성 전 문서 갱신" 추가
+- 자동/수동 문서 갱신 워크플로우 상세 설명
+- 문서 갱신 체크리스트 제공
+- 예시 1, 2에 문서 갱신 단계 추가
+
+### Changed
+
+- github-flow 플러그인 버전: 1.0.0 → 1.1.0
+- 마켓플레이스 설명: 자동 버전 관리, 문서 갱신 기능 추가 반영
+- README.md 플러그인 설명 업데이트
+
 ## [1.2.0] - 2024-10-18
 
 ### Changed

@@ -29,14 +29,18 @@ API 명세, README, CHANGELOG를 자동으로 생성하거나 최신 상태로 �
 - CHANGELOG.md 자동 생성
 
 ### 3. `/github-flow` - GitHub Flow 워크플로우 자동화
-GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화합니다.
+GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화하며, 자동 버전 관리와 문서 갱신 기능을 제공합니다.
 
-**버전**: 1.0.0
+**버전**: 1.1.0 ✨ (NEW)
 **타입**: Command
 **주요 기능:**
 - 이슈 생성 및 작업 계획 수립
+- **자동 버전 관리** (Feature: 마이너, Bug: 패치)
+- **Claude Code Plugin 버전 감지** (.claude-plugin/plugin.json, marketplace.json)
 - 브랜치 전략 자동화
 - PR 생성, 리뷰, 병합 자동화
+- **PR 생성 전 자동 문서 갱신** (`/docs --update` 지원)
+- **자동 릴리즈 태그 생성** (PR 병합 시)
 
 ### 4. `quality-guardian` - 코드 품질 및 보안 종합 검사
 코드 품질, 보안, 테스트를 종합적으로 검사하는 전문 Sub-agent입니다.

@@ -36,8 +36,8 @@
     {
       "name": "github-flow",
       "source": "./plugins/github-flow-plugin",
-      "version": "1.0.0",
-      "description": "GitHub Flow 워크플로우를 체크리스트 중심으로 자동화하는 플러그인",
+      "version": "1.1.0",
+      "description": "GitHub Flow 워크플로우를 체크리스트 중심으로 자동화하는 플러그인 - 자동 버전 관리, 문서 갱신 기능 추가",
       "category": "workflow",
       "tags": [
         "github",

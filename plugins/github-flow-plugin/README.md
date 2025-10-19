@@ -8,6 +8,23 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화하는 
 - Feature Request / Bug Report 템플릿 제공
 - 자동 라벨 지정
 - 이슈 번호 자동 추적
+- **[NEW] 자동 버전 관리**: 이슈 타입에 따라 마이너/패치 버전 자동 업데이트
+
+### 버전 관리 (자동화)
+- **Feature**: 마이너 버전 업데이트 (1.0.0 → 1.1.0)
+- **Bug**: 패치 버전 업데이트 (1.0.0 → 1.0.1)
+- 자동 버전 감지 (package.json, pyproject.toml, Cargo.toml, build.gradle, .claude-plugin/*)
+- 이슈 및 브랜치 생성 시 버전 정보 포함
+- PR 병합 시 자동 릴리즈 태그 생성
+- **[NEW] --release 명령어**: 수동 릴리즈 생성
+
+### 문서 관리 (자동화)
+- **[NEW] PR 생성 전 자동 문서 갱신**: `/docs --update` 명령어 지원
+- **README 자동 업데이트**: 버전 및 기능 정보 반영
+- **CHANGELOG 자동 갱신**: 릴리즈 노트 자동 생성
+- **API 문서 갱신**: API 엔드포인트 정보 자동 업데이트
+- **수동 갱신 지원**: `/docs --update` 불가 시 수동 가이드 제공
+- **문서 변경 커밋**: 갱신된 문서 자동 커밋 및 푸시
 
 ### 작업 계획 수립
 - 이슈 및 코드베이스 분석
@@ -15,8 +32,8 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화하는 
 - 예상 소요 시간 및 영향 범위 분석
 
 ### 브랜치 전략
-- `feature/#{issue-number}-{description}` 자동 생성
-- `fix/#{issue-number}-{description}` 자동 생성
+- `feature/#{issue-number}-{description}` 자동 생성 (버전 포함)
+- `fix/#{issue-number}-{description}` 자동 생성 (버전 포함)
 - main 브랜치 최신 상태 확인
 
 ### PR 관리
@@ -30,16 +47,18 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화하는 
 - `git pull origin main` 실행
 - 작업 브랜치 삭제
 - 원격 브랜치 정리
+- **[NEW] 자동 릴리즈 태그 생성**
+- **[NEW] 릴리즈 노트 자동 생성**
 
 ## 🚀 사용 방법
 
-### 이슈 생성
+### 이슈 생성 (자동 버전 관리)
 
 ```bash
-# Feature 요청
+# Feature 요청 (마이너 버전 업데이트: 1.0.0 → 1.1.0)
 /github-flow --issue-create --type feature --title "Add user profile page"
 
-# Bug 리포트
+# Bug 리포트 (패치 버전 업데이트: 1.0.0 → 1.0.1)
 /github-flow --issue-create --type bug --title "Fix login redirect"
 ```
 
@@ -55,6 +74,18 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화하는 
 /github-flow --branch --issue 123
 ```
 
+### PR 생성 전 문서 갱신 (자동)
+
+```bash
+# 자동 문서 갱신 (권장)
+/docs --update
+
+# 또는 수동 갱신 후 커밋
+git add README.md CHANGELOG.md
+git commit -m "docs: update documentation for v1.1.0"
+git push origin feature/123-xxx
+```
+
 ### PR 생성
 
 ```bash
@@ -67,10 +98,24 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화하는 
 /github-flow --pr-review 456
 ```
 
-### 병합 및 정리
+### 병합 및 정리 (자동 릴리즈)
 
 ```bash
+# PR 병합 + 자동 릴리즈 태그 생성 + 정리
 /github-flow --merge-cleanup
+```
+
+### 릴리즈 관리 (수동)
+
+```bash
+# 현재 버전으로 릴리즈
+/github-flow --release
+
+# 특정 버전으로 릴리즈
+/github-flow --release --version 2.0.0
+
+# 메시지와 함께 릴리즈
+/github-flow --release --version 2.0.0 --message "Major version update"
 ```
 
 ### 전체 워크플로우
@@ -83,7 +128,7 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화하는 
 
 ### 예시 1: Feature 개발 전체 사이클
 
-**1. 이슈 생성**
+**1. 이슈 생성 (자동 버전 업데이트)**
 ```
 /github-flow --issue-create --type feature --title "Add user profile page"
 ```
@@ -92,9 +137,17 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화하는 
 ```markdown
 ✅ 이슈 생성 완료: #123
 
-Title: Add user profile page
+Title: feat: Add user profile page
+Version: 1.1.0 (자동 업데이트: 1.0.0 → 1.1.0)
 URL: https://github.com/user/repo/issues/123
+Branch: feature/123-add-user-profile-page
 Labels: feature
+
+🎯 버전 관리
+- 현재 버전: 1.0.0
+- 타입: Feature (마이너 버전 업데이트)
+- 새 버전: 1.1.0
+- PR 병합 시 v1.1.0 태그 자동 생성
 ```
 
 **2. 작업 계획 수립**
@@ -155,6 +208,27 @@ git push -u origin feature/123-user-profile-page
 
 **4. 개발 작업 (사용자 수행)**
 
+**4.5. 문서 갱신**
+```bash
+# 자동 문서 갱신
+/docs --update
+
+# 또는 수동 갱신
+# - README.md 버전 정보 업데이트
+# - CHANGELOG.md에 v1.1.0 항목 추가
+# - API 문서 (docs/API.md) 업데이트
+
+git add README.md CHANGELOG.md docs/API.md
+git commit -m "docs: update documentation for v1.1.0
+
+- Update README with new features
+- Add v1.1.0 entry to CHANGELOG
+- Update API documentation
+
+Closes #123"
+git push origin feature/123-user-profile-page
+```
+
 **5. PR 생성**
 ```
 /github-flow --pr-create --issue 123
@@ -214,7 +288,7 @@ PR 내용:
 ✅ 인증 확인 로직 있음
 ```
 
-**7. 병합 및 정리**
+**7. 병합 및 정리 (자동 릴리즈)**
 ```
 /github-flow --merge-cleanup
 ```
@@ -227,18 +301,49 @@ PR 내용:
 gh pr merge 456 --squash --delete-branch
 git checkout main
 git pull origin main
+
+🎯 자동 릴리즈 생성
+git tag -a v1.1.0 -m "Release v1.1.0
+
+Changes:
+- feat: Add user profile page (#123)
+
+Generated with github-flow plugin"
+git push origin v1.1.0
+
+정리:
 git branch -d feature/123-user-profile-page
 git remote prune origin
 
-현재 브랜치: main
-이슈 #123 자동 close됨
+✅ 완료 상태
+- 현재 브랜치: main
+- 이슈 #123 자동 close됨
+- 릴리즈 태그: v1.1.0 생성
+- 릴리즈 노트: GitHub Release에 자동 생성
 ```
 
-### 예시 2: Bug Fix 워크플로우
+### 예시 2: Bug Fix 워크플로우 (패치 버전 업데이트)
 
-**1. 버그 이슈 생성**
+**1. 버그 이슈 생성 (패치 버전 업데이트)**
 ```
 /github-flow --issue-create --type bug --title "Fix login redirect issue"
+```
+
+**출력:**
+```markdown
+✅ 이슈 생성 완료: #124
+
+Title: fix: Fix login redirect issue
+Version: 1.0.1 (자동 업데이트: 1.0.0 → 1.0.1)
+URL: https://github.com/user/repo/issues/124
+Branch: fix/124-fix-login-redirect-issue
+Labels: bug
+
+🎯 버전 관리
+- 현재 버전: 1.0.0
+- 타입: Bug Fix (패치 버전 업데이트)
+- 새 버전: 1.0.1
+- PR 병합 시 v1.0.1 태그 자동 생성
 ```
 
 **2. 작업 계획**
@@ -268,7 +373,45 @@ git remote prune origin
 ## 예상 소요 시간: 2시간
 ```
 
-**3. 나머지 워크플로우 동일**
+**3. 브랜치 생성**
+```bash
+/github-flow --branch --issue 124
+```
+
+**4. 개발 작업 (버그 수정)**
+```bash
+# 버그 원인 파악 및 수정
+# 테스트 추가
+```
+
+**4.5. 문서 갱신**
+```bash
+# 자동 문서 갱신
+/docs --update
+
+# 또는 수동 갱신
+git add CHANGELOG.md
+git commit -m "docs: update CHANGELOG for v1.0.1
+
+- Fix login redirect issue (#124)
+
+Closes #124"
+git push origin fix/124-fix-login-redirect-issue
+```
+
+**5. PR 생성 및 병합**
+```bash
+/github-flow --pr-create --issue 124
+# (리뷰 후)
+/github-flow --merge-cleanup
+```
+
+**결과:**
+```bash
+✅ PR 병합 완료
+✅ 릴리즈 태그 생성: v1.0.1
+✅ 이슈 #124 자동 close
+```
 
 ## 🎯 GitHub Flow 원칙
 
@@ -279,10 +422,15 @@ git remote prune origin
 4. 코드 리뷰 후 main에 병합
 5. 병합 즉시 배포
 
-### 브랜치 네이밍 컨벤션
-- Feature: `feature/{issue-number}-{description}`
-- Bug Fix: `fix/{issue-number}-{description}`
-- Hotfix: `hotfix/{issue-number}-{description}`
+### 브랜치 네이밍 컨벤션 (자동 버전 관리)
+- **Feature**: `feature/{issue-number}-{description}` (마이너 버전 +1)
+  - 예: `feature/123-add-dark-mode` (v1.0.0 → v1.1.0)
+- **Bug Fix**: `fix/{issue-number}-{description}` (패치 버전 +1)
+  - 예: `fix/124-fix-redirect` (v1.0.0 → v1.0.1)
+- **Hotfix**: `hotfix/{issue-number}-{description}` (패치 버전 +1)
+  - 예: `hotfix/125-critical-bug` (v1.0.0 → v1.0.1)
+
+> 💡 **버전 관리**: 브랜치 생성 시 자동으로 버전이 업데이트되고, PR 병합 시 릴리즈 태그가 생성됩니다.
 
 ## 🛠️ GitHub CLI 필요
 
@@ -309,17 +457,19 @@ gh auth login
 
 ## ✅ 자동 생성되는 체크리스트
 
-### 작업 계획 체크리스트
+### 작업 계획 체크리스트 (버전 관리 포함)
 ```markdown
-- [ ] 이슈 확인
+- [ ] 버전 확인 (현재: 1.0.0)
+- [ ] 이슈 생성 (자동 버전 업데이트)
 - [ ] 코드베이스 분석
-- [ ] 브랜치 생성
+- [ ] 브랜치 생성 (버전 정보 포함)
 - [ ] 개발 작업
 - [ ] 테스트 작성
 - [ ] 코드 품질 검사
 - [ ] PR 생성
 - [ ] 코드 리뷰
 - [ ] 병합
+- [ ] 릴리즈 태그 생성 (자동)
 - [ ] 정리
 ```
 
