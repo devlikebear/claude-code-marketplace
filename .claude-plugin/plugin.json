@@ -3,11 +3,11 @@
   "version": "1.1.0",
   "description": "커뮤니티 기반 Claude Code 플러그인 마켓플레이스 - 5개 플러그인 제공",
   "author": {
-    "name": "Changheon Shin",
-    "url": "https://github.com/changheonshin"
+    "name": "devlikebear@gmail.com",
+    "url": "https://github.com/devlikebear"
   },
-  "homepage": "https://github.com/changheonshin/claude-code-marketplace",
-  "repository": "https://github.com/changheonshin/claude-code-marketplace",
+  "homepage": "https://github.com/devlikebear/claude-code-marketplace",
+  "repository": "https://github.com/devlikebear/claude-code-marketplace",
   "license": "MIT",
   "keywords": [
     "claude-code",

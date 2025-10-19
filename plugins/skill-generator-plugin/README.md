@@ -34,7 +34,7 @@ Claude Skills는 Claude에게 특정 도메인이나 작업에 대한 깊이 있
 /plugin install skill-generator@claude-code-marketplace
 
 # 또는 개별 설치
-/plugin marketplace add changheonshin/claude-code-marketplace
+/plugin marketplace add devlikebear/claude-code-marketplace
 ```
 
 ### 기본 사용
@@ -360,9 +360,9 @@ MIT License
 
 ## 📞 지원 및 피드백
 
-- 🐛 [버그 리포트](https://github.com/changheonshin/claude-code-marketplace/issues)
-- 💬 [토론](https://github.com/changheonshin/claude-code-marketplace/discussions)
-- ⭐ [프로젝트 스타](https://github.com/changheonshin/claude-code-marketplace)
+- 🐛 [버그 리포트](https://github.com/devlikebear/claude-code-marketplace/issues)
+- 💬 [토론](https://github.com/devlikebear/claude-code-marketplace/discussions)
+- ⭐ [프로젝트 스타](https://github.com/devlikebear/claude-code-marketplace)
 
 ---
 

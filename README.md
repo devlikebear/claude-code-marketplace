@@ -2,8 +2,8 @@
 
 커뮤니티 기반 Claude Code 플러그인 마켓플레이스 - **5개 플러그인 제공**
 
-[![Version](https://img.shields.io/badge/version-1.2.0-blue)](https://github.com/changheonshin/claude-code-marketplace)
-[![Plugins](https://img.shields.io/badge/plugins-5-brightgreen)](https://github.com/changheonshin/claude-code-marketplace)
+[![Version](https://img.shields.io/badge/version-1.2.0-blue)](https://github.com/devlikebear/claude-code-marketplace)
+[![Plugins](https://img.shields.io/badge/plugins-5-brightgreen)](https://github.com/devlikebear/claude-code-marketplace)
 [![License](https://img.shields.io/badge/license-MIT-orange)](LICENSE)
 
 ## 📦 포함된 플러그인
@@ -96,7 +96,7 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화합니�
 
 ### 마켓플레이스 추가
 ```bash
-/plugin marketplace add changheonshin/claude-code-marketplace
+/plugin marketplace add devlikebear/claude-code-marketplace
 ```
 
 ### 플러그인 설치
@@ -196,5 +196,5 @@ MIT License
 
 ## 📞 문의 및 지원
 
-- GitHub Issues: https://github.com/changheonshin/claude-code-marketplace/issues
-- GitHub Discussions: https://github.com/changheonshin/claude-code-marketplace/discussions
+- GitHub Issues: https://github.com/devlikebear/claude-code-marketplace/issues
+- GitHub Discussions: https://github.com/devlikebear/claude-code-marketplace/discussions

@@ -308,6 +308,6 @@ novel-writer-plugin/
 
 ---
 
-**Contributors**: ChangHeon Shin
+**Contributors**: devlikebear
 **License**: MIT
 **Homepage**: https://github.com/yourusername/novel-writer-plugin

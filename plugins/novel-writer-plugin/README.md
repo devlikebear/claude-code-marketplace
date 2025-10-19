@@ -215,7 +215,7 @@ novel-writer-plugin/
 
 ## 📧 연락처
 
-- **작성자**: ChangHeon Shin
+- **작성자**: devlikebear
 - **Email**: your@email.com
 - **GitHub**: [@yourusername](https://github.com/yourusername)
 - **이슈 리포트**: [GitHub Issues](https://github.com/yourusername/novel-writer-plugin/issues)

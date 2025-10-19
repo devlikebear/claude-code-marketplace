@@ -2,8 +2,8 @@
   "name": "claude-code-marketplace",
   "version": "1.2.0",
   "owner": {
-    "name": "Changheon Shin",
-    "url": "https://github.com/changheonshin"
+    "name": "devlikebear",
+    "url": "https://github.com/devlikebear"
   },
   "plugins": [
     {
@@ -12,7 +12,12 @@
       "version": "1.0.0",
       "description": "Kent Beck의 TDD 원칙을 따라 Next.js 웹 서비스를 체계적으로 개발하는 워크플로우",
       "category": "development",
-      "tags": ["tdd", "testing", "nextjs", "workflow"]
+      "tags": [
+        "tdd",
+        "testing",
+        "nextjs",
+        "workflow"
+      ]
     },
     {
       "name": "docs",
@@ -20,7 +25,13 @@
       "version": "1.0.0",
       "description": "API 명세, README, CHANGELOG를 자동으로 생성하거나 최신 상태로 유지하는 문서 자동화 플러그인",
       "category": "documentation",
-      "tags": ["documentation", "api-spec", "readme", "changelog", "automation"]
+      "tags": [
+        "documentation",
+        "api-spec",
+        "readme",
+        "changelog",
+        "automation"
+      ]
     },
     {
       "name": "github-flow",
@@ -28,7 +39,12 @@
       "version": "1.0.0",
       "description": "GitHub Flow 워크플로우를 체크리스트 중심으로 자동화하는 플러그인",
       "category": "workflow",
-      "tags": ["github", "workflow", "automation", "pr"]
+      "tags": [
+        "github",
+        "workflow",
+        "automation",
+        "pr"
+      ]
     },
     {
       "name": "quality-guardian",
@@ -36,7 +52,12 @@
       "version": "1.0.0",
       "description": "코드 품질, 보안, 테스트를 종합적으로 검사하는 전문 Sub-agent",
       "category": "quality",
-      "tags": ["code-quality", "security", "testing", "code-review"]
+      "tags": [
+        "code-quality",
+        "security",
+        "testing",
+        "code-review"
+      ]
     },
     {
       "name": "novel-writer",
@@ -44,7 +65,14 @@
       "version": "1.2.0",
       "description": "장르 소설 작성을 위한 완전한 통합 워크플로우 - 시작부터 완성까지 (13개 명령어, 4개 에이전트, 6개 스킬, 344 테스트)",
       "category": "creative-writing",
-      "tags": ["novel", "writing", "fiction", "creative", "workflow", "tdd"]
+      "tags": [
+        "novel",
+        "writing",
+        "fiction",
+        "creative",
+        "workflow",
+        "tdd"
+      ]
     },
     {
       "name": "skill-generator",
@@ -52,7 +80,13 @@
       "version": "1.0.0",
       "description": "코드베이스를 분석하여 Claude Skills를 자동으로 생성하는 플러그인",
       "category": "development",
-      "tags": ["skills", "ai-capabilities", "code-analysis", "automation", "claude"]
+      "tags": [
+        "skills",
+        "ai-capabilities",
+        "code-analysis",
+        "automation",
+        "claude"
+      ]
     }
   ],
   "categories": [
