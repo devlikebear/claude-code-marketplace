@@ -59,11 +59,19 @@ plugins/
 - 테스트 344개 (기존 213개 + 131개)
 - 완전한 통합 워크플로우 제공
 
+#### Skill Generator Plugin 추가 (v1.0.0)
+
+- 코드베이스 분석 기반 Claude Skills 자동 생성
+- 프로젝트 구조 학습 및 분석
+- 재사용 가능한 Skills 생성
+- 1개 Skill 제공
+
 #### 마켓플레이스 메타데이터 개선
 
 - marketplace.json 버전: 1.1.0 → 1.2.0
+- plugin.json 버전: 1.1.0 → 1.2.0 (6개 플러그인 명시)
 - 모든 플러그인에 description, category, tags 추가
-- categories 필드 추가: creative-writing, development, documentation, workflow, quality
+- categories 필드 추가: creative-writing, development, documentation, workflow, quality, skills
 
 ## [1.1.0] - 2024-10-18
 

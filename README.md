@@ -1,9 +1,9 @@
 # Claude Code Marketplace
 
-커뮤니티 기반 Claude Code 플러그인 마켓플레이스 - **5개 플러그인 제공**
+커뮤니티 기반 Claude Code 플러그인 마켓플레이스 - **6개 플러그인 제공**
 
 [![Version](https://img.shields.io/badge/version-1.2.0-blue)](https://github.com/devlikebear/claude-code-marketplace)
-[![Plugins](https://img.shields.io/badge/plugins-5-brightgreen)](https://github.com/devlikebear/claude-code-marketplace)
+[![Plugins](https://img.shields.io/badge/plugins-6-brightgreen)](https://github.com/devlikebear/claude-code-marketplace)
 [![License](https://img.shields.io/badge/license-MIT-orange)](LICENSE)
 
 ## 📦 포함된 플러그인
@@ -92,6 +92,17 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화합니�
 
 **상세 문서**: [plugins/novel-writer-plugin/README.md](plugins/novel-writer-plugin/README.md)
 
+### 6. `skill-generator` - Claude Skills 자동 생성 플러그인
+
+코드베이스 분석 기반으로 Claude Skills를 자동으로 생성하는 전문 플러그인입니다.
+
+**버전**: 1.0.0
+**타입**: Skill Generator
+**주요 기능:**
+- 코드 분석 기반 Skills 자동 생성
+- 프로젝트 구조 학습
+- 재사용 가능한 Skills 생성
+
 ## 🚀 설치 방법
 
 ### 마켓플레이스 추가
@@ -111,6 +122,7 @@ GitHub Flow 전체 프로세스를 체크리스트 중심으로 자동화합니�
 /plugin install github-flow@claude-code-marketplace
 /plugin install quality-guardian@claude-code-marketplace
 /plugin install novel-writer@claude-code-marketplace
+/plugin install skill-generator@claude-code-marketplace
 ```
 
 ## 📖 사용 방법
