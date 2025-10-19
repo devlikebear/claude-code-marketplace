@@ -2,7 +2,7 @@
 
 커뮤니티 기반 Claude Code 플러그인 마켓플레이스 - **6개 플러그인 제공**
 
-[![Version](https://img.shields.io/badge/version-1.2.0-blue)](https://github.com/devlikebear/claude-code-marketplace)
+[![Version](https://img.shields.io/badge/version-1.2.1-blue)](https://github.com/devlikebear/claude-code-marketplace)
 [![Plugins](https://img.shields.io/badge/plugins-6-brightgreen)](https://github.com/devlikebear/claude-code-marketplace)
 [![License](https://img.shields.io/badge/license-MIT-orange)](LICENSE)
 

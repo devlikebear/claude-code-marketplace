@@ -1,6 +1,6 @@
 {
   "name": "claude-code-marketplace",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "커뮤니티 기반 Claude Code 플러그인 마켓플레이스 - 6개 플러그인 제공",
   "author": {
     "name": "devlikebear@gmail.com",
